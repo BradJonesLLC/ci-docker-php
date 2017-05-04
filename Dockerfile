@@ -22,7 +22,7 @@ RUN php -r "readfile('https://getcomposer.org/installer');" | php && mv composer
 COPY *.sh /
 
 RUN useradd -ms /bin/bash runner
-
 ENV HOME /home/runner
+VOLUME ["/builds"]
 
 ENTRYPOINT ["/bootstrap.sh"]
