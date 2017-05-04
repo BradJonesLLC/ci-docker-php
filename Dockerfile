@@ -4,6 +4,9 @@ RUN apt-get update && apt-get install -yqq --no-install-recommends \
     curl \
     php-cli \
     ca-certificates \
+    git \
+    wget \
+    zip unzip \
     && apt-get clean autoclean && apt-get autoremove -y \
 && rm -rf /var/lib/apt/lists/*
 
