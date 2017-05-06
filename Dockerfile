@@ -1,8 +1,10 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get install -yqq --no-install-recommends \
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get update && apt-get install -yqq --no-install-recommends \
     curl \
     php-cli \
+    php-curl \
     ca-certificates \
     git \
     wget \
