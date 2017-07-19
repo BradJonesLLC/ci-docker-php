@@ -21,6 +21,14 @@ RUN curl -fsSL \
 # Install composer.
 RUN php -r "readfile('https://getcomposer.org/installer');" | php && mv composer.phar /usr/local/bin/composer
 
+# Install Rancher CLI
+ENV RANCHER_CLI_VERSION 0.6.2
+RUN curl -fsSL \
+    "https://github.com/rancher/cli/releases/download/v${RANCHER_CLI_VERSION}/rancher-linux-amd64-v${RANCHER_CLI_VERSION}.tar.gz" \
+    | tar xz \
+    && mv rancher-v${RANCHER_CLI_VERSION}/rancher /usr/local/bin/rancher \
+    && rm -rf rancher-v${RANCHER_CLI_VERSION}
+
 COPY *.sh /
 
 RUN useradd -ms /bin/bash runner
