@@ -9,6 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     git \
     wget \
     zip unzip \
+    jq \
     && apt-get clean autoclean && apt-get autoremove -y \
 && rm -rf /var/lib/apt/lists/*
 
