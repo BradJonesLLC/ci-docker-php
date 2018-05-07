@@ -9,6 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     jq \
     patch \
     expect \
+    tcl8.6 \
     && rm -rf /var/lib/apt/lists/*
 
 ENV DOCKER_VERSION 17.04.0-ce
