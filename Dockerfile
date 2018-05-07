@@ -1,10 +1,7 @@
-FROM ubuntu
+FROM php:7.2-cli-stretch
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && apt-get install -yqq --no-install-recommends \
-    curl \
-    php-cli \
-    php-curl \
     ca-certificates \
     git \
     wget \
@@ -12,8 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     jq \
     patch \
     expect \
-    && apt-get clean autoclean && apt-get autoremove -y \
-&& rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 ENV DOCKER_VERSION 17.04.0-ce
 RUN curl -fsSL \
