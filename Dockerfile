@@ -21,13 +21,11 @@ RUN curl -fsSL \
 # Install composer.
 RUN php -r "readfile('https://getcomposer.org/installer');" | php && mv composer.phar /usr/local/bin/composer
 
-# Install Rancher CLI
-ENV RANCHER_CLI_VERSION 0.6.8
-RUN curl -fsSL \
-    "https://github.com/rancher/cli/releases/download/v${RANCHER_CLI_VERSION}/rancher-linux-amd64-v${RANCHER_CLI_VERSION}.tar.gz" \
-    | tar xz \
-    && mv rancher-v${RANCHER_CLI_VERSION}/rancher /usr/local/bin/rancher \
-    && rm -rf rancher-v${RANCHER_CLI_VERSION}
+# Install Dockerize
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 COPY *.sh /
 
