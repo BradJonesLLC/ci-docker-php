@@ -36,7 +36,6 @@ COPY *.sh /
 
 RUN useradd -ms /bin/bash runner
 ENV HOME /home/runner
-USER runner
 
 VOLUME ["/builds"]
 
