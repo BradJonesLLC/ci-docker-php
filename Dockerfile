@@ -34,7 +34,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 COPY *.sh /
 
-RUN useradd -ms /bin/bash runner
+RUN useradd -u 2000 -mr runner
 ENV HOME /home/runner
 
 VOLUME ["/builds"]
