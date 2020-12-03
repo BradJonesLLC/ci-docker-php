@@ -1,4 +1,4 @@
-FROM php:7.2-cli-stretch
+FROM php:7.4-cli-buster
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && apt-get install -yqq --no-install-recommends \
