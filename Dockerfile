@@ -25,6 +25,12 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer \
     && rm composer-setup.php
 
+# Install local PHP security scanning tool.
+ENV LOCAL_PHP_SECURITY_CHECKER_VERSION 1.0.0
+RUN wget "https://github.com/fabpot/local-php-security-checker/releases/download/v$LOCAL_PHP_SECURITY_CHECKER_VERSION/local-php-security-checker_$LOCAL_PHP_SECURITY_CHECKER_VERSION"_linux_386 \
+    && mv local-php-security-checker_"$LOCAL_PHP_SECURITY_CHECKER_VERSION"_linux_386 /usr/local/bin/local-php-security-checker \
+    && chmod +x /usr/local/bin/local-php-security-checker
+
 # Install klar.
 ENV KLAR_VERSION 2.3.0
 RUN curl -o /usr/local/bin/klar -L https://github.com/optiopay/klar/releases/download/v$KLAR_VERSION/klar-$KLAR_VERSION-linux-amd64 \
