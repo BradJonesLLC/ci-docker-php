@@ -19,8 +19,6 @@ RUN curl -fsSL \
     && rm -rf docker
 
 # Install composer.
-# Install composer.
-ENV LEGACY_COMPOSER_VERSION 1.10.20
 RUN curl -L -o composer-setup.php https://getcomposer.org/installer \
     && export EXPECTED_CHECKSUM="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')" \
     && export ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")" \
