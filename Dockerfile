@@ -12,11 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     tcl8.6 \
     && rm -rf /var/lib/apt/lists/*
 
-ENV DOCKER_VERSION 20.10.7-ce
-RUN curl -fsSL \
-    "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}.tgz" | tar xz > docker \
-    && mv docker/docker /usr/local/bin/docker \
-    && rm -rf docker
+COPY --from=docker:20.10.7 /usr/local/bin/docker /usr/local/bin/
 
 # Install composer.
 RUN curl -L -o composer-setup.php https://getcomposer.org/installer \
