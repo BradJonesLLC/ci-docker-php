@@ -42,8 +42,8 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # For maximum compatibility with Symfony console, etc.
-RUN ln -s /dev/stdout /var/log/console \
-    && chmod +w /var/log/console
+RUN ln -s /dev/null /var/log/console \
+    && chmod o+rw /var/log/console
 
 COPY *.sh /
 
