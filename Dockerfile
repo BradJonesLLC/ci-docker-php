@@ -1,4 +1,4 @@
-FROM php:7.4-cli-buster
+FROM php:8.1-cli-buster
 
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && apt-get install -yqq --no-install-recommends \
