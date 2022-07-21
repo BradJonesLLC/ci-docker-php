@@ -30,11 +30,6 @@ RUN wget "https://github.com/fabpot/local-php-security-checker/releases/download
     && mv local-php-security-checker_"$LOCAL_PHP_SECURITY_CHECKER_VERSION"_linux_386 /usr/local/bin/local-php-security-checker \
     && chmod +x /usr/local/bin/local-php-security-checker
 
-# Install klar.
-ENV KLAR_VERSION 2.3.0
-RUN curl -o /usr/local/bin/klar -L https://github.com/optiopay/klar/releases/download/v$KLAR_VERSION/klar-$KLAR_VERSION-linux-amd64 \
-    && chmod +x /usr/local/bin/klar
-
 # Install Dockerize
 ENV DOCKERIZE_VERSION v0.6.1
 RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
